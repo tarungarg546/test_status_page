@@ -5,10 +5,70 @@
 		<meta name="robots" content="index, follow">
 		<title>SquadPlatform API Status</title>
 		<link rel="shortcut icon" href="https://squadplatform.com/wp-content/uploads/favicon.ico"/>
+		<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300italic,700,700italic">
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/3.0.3/normalize.css">
+		<link rel="stylesheet" type="text/css" href="style.css">
+		<style type="text/css">
+			#hidden {
+				display: none;
+			}
+		</style>
+
 	</head>
 	<body>
+		<main class="wrapper" id='hidden'>
+			<nav class="navigation">
+				<section class="container">
+					<a class="navigation-title" href="https://squadplatform.com" target="_blank">
+						<h6 class="title">SquadPlatform API Status</h6>
+					</a>
+				</section>
+			</nav>
+
+			<section class="container" id="main">
+
+				<h4>Components</h4>
+				<ul class="systems">
+					<li>
+						Create API <span class="status major outage">Issue Reported</span>
+					</li>
+					<li>
+						Responses API <span class="status major outage">Issue Reported</span>
+					</li>
+				</ul>
+
+				<h4>Incidents</h4>
+					<div class="incident">
+						<span class="date"> Issue observed at Few Minutes ago</span>
+
+						<span class="label major outage float-right">Issue Reported</span>
+                        <span class="label system float-right">Create API</span>
+                        <span class="label system float-right">Responses API</span>
+						<hr/>
+
+						<p><em>Update <span>Few Minutes ago</span></em></p>
+							Issue has been reported
+					</div>
+			</section>
+
+
+			<footer class="footer">
+				<section class="container">
+					<hr/>
+					<p>Status page for SquadPlatform's API</p>
+				</section>
+			</footer>
+
+		</main>
         <script>
-            fetch('http://localhost:8000/status/api/ping').then(response => document.write(response.text()))
+            fetch('https://api.squadplatform.com/status/api/ping').then(
+            	response => {
+            		document.body.innerHTML = response.text()
+            	}
+            ).catch(_ => {
+            	elem = document.getElementById('hidden')
+            	elem.style.display = 'block'
+            })
         </script>
 	</body>
 </html>
