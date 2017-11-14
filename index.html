@@ -1,0 +1,13 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="robots" content="index, follow">
+		<title>SquadPlatform API Status</title>
+		<link rel="shortcut icon" href="https://squadplatform.com/wp-content/uploads/favicon.ico"/>
+	</head>
+	<body>
+        <script>
+            fetch('http://localhost:8000/status/api/ping').then(response => document.write(response.text()))
+	</body>
+</html>
